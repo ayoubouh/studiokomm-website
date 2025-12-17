@@ -158,6 +158,26 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initApp() {
+    // Set initial theme based on system preference or default to dark
+    if (localStorage.getItem('theme') === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+        document.documentElement.classList.remove('dark');
+        document.body.classList.add('light-mode');
+    } else {
+        document.documentElement.classList.add('dark');
+        document.body.classList.add('dark-mode');
+    }
+    
+    // Update theme toggle icon
+    const toggle = document.getElementById('themeToggle');
+    const darkIcon = toggle.querySelector('.dark-icon');
+    const lightIcon = toggle.querySelector('.light-icon');
+    if (document.documentElement.classList.contains('dark')) {
+        darkIcon.classList.remove('hidden');
+        lightIcon.classList.add('hidden');
+    } else {
+        darkIcon.classList.add('hidden');
+        lightIcon.classList.remove('hidden');
+    }
     setTimeout(() => {
         document.getElementById('loadingScreen').classList.add('hidden');
     }, 1500);
@@ -259,10 +279,12 @@ function initThemeToggle() {
     const lightIcon = toggle.querySelector('.light-icon');
     
     toggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
         document.body.classList.toggle('dark-mode');
         document.body.classList.toggle('light-mode');
-        darkIcon.classList.toggle('hidden');
-        lightIcon.classList.toggle('hidden');
+        localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        
+
     });
 }
 

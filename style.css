@@ -27,7 +27,7 @@ body {
 
 .light body, body.light-mode {
     background: var(--light-bg);
-    color: #1e293b;
+    color: var(--dark-bg); /* Ensure text is dark on light background */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -73,6 +73,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Glassmorphism */
 .glass {
+    /* Default (Dark Mode) */
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -80,8 +81,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .light-mode .glass {
-    background: rgba(255, 255, 255, 0.7);
+    /* Light Mode */
+    background: rgba(255, 255, 255, 0.9); /* More opaque for better contrast */
+    backdrop-filter: blur(10px); /* Reduced blur for light mode */
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
 }
 
 /* Gradient Text */

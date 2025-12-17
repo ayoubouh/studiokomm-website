@@ -1,0 +1,23 @@
+{
+  "name": "studiokomm-website",
+  "version": "1.0.0",
+  "description": "STUDIOKOMM - Creative Agency Website",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss -i ./input.css -o ./dist/output.css --minify",
+    "watch": "tailwindcss -i ./input.css -o ./dist/output.css --watch"
+  },
+  "keywords": [
+    "tailwind",
+    "css",
+    "static",
+    "website"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18"
+  }
+}
