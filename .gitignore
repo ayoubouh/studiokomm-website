@@ -1,0 +1,34 @@
+# Dependency directories
+/node_modules
+/dist
+/build
+/out
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs and Editors
+.vscode
+.idea
+*.sublime-project
+*.sublime-workspace
+
+# Local environment variables
+.env
+.env.local
+.env.*.local
+
+# Tailwind CSS
+tailwind.config.js.bak
